@@ -2,8 +2,8 @@
   <%= form_with(model: @todo) do |form| %>
   
     <div class="field">
-      <%= form.label :content %>
       <%= form.text_field :content %>
+      <%= form.submit %>
     </div>
   
   <% end %>
