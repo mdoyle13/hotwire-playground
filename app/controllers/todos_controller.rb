@@ -24,7 +24,6 @@ class TodosController < ApplicationController
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: turbo_stream.replace(@todo, partial: "todo", locals: {todo: @todo})
-        Turbo::StreamsChannel.broadcast_replace_to(:todos, target: @todo, partial: "todos/todo", locals: {todo: @todo})
       end
     end
   end
