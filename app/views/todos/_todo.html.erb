@@ -1,6 +1,10 @@
 <turbo-frame id="<%= dom_id(todo) %>">
-  <div id="<%= dom_id(todo) %>" class="<%= todo.completed? ? "completed" : "" %>">
-    <p><%= link_to todo.content, toggle_todo_path(todo), method: :post %>
+  <div id="<%= dom_id(todo) %>">
+    <p>
+      <span class="<%= todo.completed? ? "completed" : "" %>">
+        <%= todo.content %>
+      </span>
+    | <%= link_to todo.completed? ? "mark incomplete" : "mark complete", toggle_todo_path(todo), method: :post %>
     | <%= link_to 'Edit', edit_todo_path(todo) %>
     | <%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></p>
   </div>
