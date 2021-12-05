@@ -41,7 +41,7 @@ class TodosController < ApplicationController
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @todo.errors, status: :unprocessable_entity }
         format.turbo_stream do
-          render turbo_stream: turbo_stream.update('create-todo', partial: "form", locals: {todo: @todo})
+          render turbo_stream: turbo_stream.update('create-todo', partial: "form", locals: {todo: @todo, css_classes: "fade-in-left"})
         end
       end
     end

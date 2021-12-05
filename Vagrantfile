@@ -28,6 +28,7 @@ Vagrant.configure("2") do |config|
     deploy_config.vm.box = "ubuntu/bionic64"
     deploy_config.vm.hostname = "deploy"
     deploy_config.vm.network 'forwarded_port', guest: 3000, host: 3000
+    deploy_config.vm.network 'forwarded_port', guest: 3035, host: 3035
 
     deploy_config.ssh.forward_agent = true
     
