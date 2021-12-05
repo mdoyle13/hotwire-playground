@@ -1,0 +1,11 @@
+<turbo-stream action="prepend" target="todos">
+  <template>
+    <%= render partial: "todo", locals: {todo: @todo}, formats: [:html] %>
+  </template>
+</turbo-stream>
+
+<turbo-stream action="update" target="create-todo">
+  <template>
+    <%= render partial: "form", locals: {todo: Todo.new}, formats: [:html] %>
+  </template>
+</turbo-stream>

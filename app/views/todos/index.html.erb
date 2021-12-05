@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Todos</h1>
+
+<div id="todos">
+  <%= render @todos %>
+</div>
+
+<turbo-frame id="create-todo">
+  <%= render 'form', todo: Todo.new %>
+</turbo-frame>
