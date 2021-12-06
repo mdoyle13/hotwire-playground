@@ -20,7 +20,6 @@ gem 'turbo-rails'
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 4.0', :require => ["redis", "redis/connection/hiredis"]
-
 gem "hiredis"
 
 # Use Active Model has_secure_password
