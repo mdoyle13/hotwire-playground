@@ -9,4 +9,4 @@ import "@hotwired/turbo-rails"
 import "channels"
 
 Rails.start()
-ActiveStorage.start()
+// ActiveStorage.start()
