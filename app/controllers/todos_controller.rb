@@ -3,7 +3,7 @@ class TodosController < ApplicationController
 
   # GET /todos or /todos.json
   def index
-    @todos = Todo.all.order('id DESC')
+    @todos = Todo.all.order(id: :desc)
   end
 
   # GET /todos/1 or /todos/1.json
@@ -34,7 +34,7 @@ class TodosController < ApplicationController
 
     respond_to do |format|
       if @todo.save
-        flash[:notice] = "Todo created"
+        flash.now[:notice] = "Todo created"
         format.html { redirect_to @todo, notice: "Todo was successfully created." }
         format.json { render :show, status: :created, location: @todo }
         format.turbo_stream { render layout: 'application' }

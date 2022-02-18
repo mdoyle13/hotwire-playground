@@ -11,7 +11,10 @@
   </head>
 
   <body>
-    <div id="flash"></div>
+    <turbo-frame id="flash">
+      <%= render 'shared/flash_messages' %>
+    </turbo-frame>
+
     <%= yield %>
   </body>
 </html>
