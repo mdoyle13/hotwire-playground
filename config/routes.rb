@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   root to: 'pages#index'
   
   resources :todos do
+    collection do
+      get :complete, :incomplete
+    end
     member do
       post :toggle
     end

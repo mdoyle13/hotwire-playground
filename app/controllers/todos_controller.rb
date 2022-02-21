@@ -5,6 +5,16 @@ class TodosController < ApplicationController
   def index
     @todos = Todo.all.order(id: :desc)
   end
+  
+  def incomplete
+    @todos = Todo.incomplete.order(id: :desc)
+    render :index
+  end
+  
+  def complete
+    @todos = Todo.complete.order(id: :desc)
+    render :index
+  end
 
   # GET /todos/1 or /todos/1.json
   def show

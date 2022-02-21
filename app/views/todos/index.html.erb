@@ -1,10 +1,11 @@
 <h1>Todos</h1>
 <%= turbo_stream_from :todos %>
 
-<div id="todos">
-  <%= render @todos %>
-</div>
-
+<%= link_to "all", todos_path, data: {turbo_frame: "todos", turbo_action: "advance" } %> | 
+<%= link_to "incomplete", incomplete_todos_path, data: {turbo_frame: "todos", turbo_action: "advance"} %> | 
+<%= link_to "complete", complete_todos_path, data: {turbo_frame: "todos", turbo_action: "advance"} %>
+<hr>
+<%= render "todos", todos: @todos %>
 <turbo-frame id="create-todo">
   <%= render 'form', todo: Todo.new %>
 </turbo-frame>
