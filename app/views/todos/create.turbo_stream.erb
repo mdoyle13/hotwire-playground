@@ -1,4 +1,4 @@
-<%# prepend the todo to the top of the list %>
+<%# prepend the todo to the top of the list of todos %>
 <turbo-stream action="prepend" target="todos">
   <template>
     <%= render partial: "todo", locals: {todo: @todo}, formats: [:html] %>

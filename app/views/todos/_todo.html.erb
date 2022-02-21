@@ -1,11 +1,11 @@
-<turbo-frame id="<%= dom_id(todo) %>">
+<%= turbo_frame_tag todo do %>
   <div id="<%= dom_id(todo) %>">
     <p>
       <span class="<%= todo.completed? ? "completed" : "" %>">
         <%= todo.content %>
       </span>
-    | <%= link_to todo.completed? ? "mark incomplete" : "mark complete", toggle_todo_path(todo), method: :post %>
+    | <%= link_to todo.completed? ? "mark incomplete" : "mark complete", toggle_todo_path(todo), data: {turbo_method: :patch} %>
     | <%= link_to 'Edit', edit_todo_path(todo) %>
-    | <%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    | <%= link_to 'Destroy', todo, data: { confirm: 'Are you sure?', turbo_method: :delete } %></p>
   </div>
-</turbo-frame>
+<% end %>

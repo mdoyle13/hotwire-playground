@@ -1,4 +1,4 @@
-<turbo-frame id="<%= dom_id(@todo) %>">
+<%= turbo_frame_tag @todo do %>
   <%= form_with(model: @todo) do |form| %>
   
     <div class="field">
@@ -7,4 +7,4 @@
     </div>
   
   <% end %>
-</turbo-frame>
+<% end %>

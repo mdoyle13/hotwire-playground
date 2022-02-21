@@ -6,6 +6,7 @@
 <%= link_to "complete", complete_todos_path, data: {turbo_frame: "todos", turbo_action: "advance"} %>
 <hr>
 <%= render "todos", todos: @todos %>
-<turbo-frame id="create-todo">
+
+<%= turbo_frame_tag "create-todo" do %>
   <%= render 'form', todo: Todo.new %>
-</turbo-frame>
+<% end %>
