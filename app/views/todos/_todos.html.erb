@@ -1,3 +1,10 @@
 <%= turbo_frame_tag "todos" do %>
   <%= render @todos %>
+  
+  <% if controller.action_name == "index" %>
+    <%= turbo_frame_tag "create-todo" do %>
+      <%= render 'form', todo: Todo.new %>
+    <% end %>
+  <% end %>
+
 <% end %>
