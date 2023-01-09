@@ -1,3 +1,3 @@
 # README
 
-https://hotwire-playground-md.herokuapp.com/todos
+https://white-moon-9145.fly.dev/todos
