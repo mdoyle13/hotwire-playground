@@ -22,3 +22,4 @@ test:
 
 production:
   url: <%= ENV.fetch("DATABASE_URL") { nil } %>
+  adapter: postgresql
