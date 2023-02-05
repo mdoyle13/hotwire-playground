@@ -79,6 +79,7 @@ class TodosController < ApplicationController
     @todo.destroy
 
     respond_to do |format|
+      format.html { redirect_to @todo }
       format.turbo_stream { render turbo_stream: turbo_stream.remove(@todo) }
     end
   end
