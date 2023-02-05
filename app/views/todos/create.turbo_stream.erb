@@ -1,13 +1,8 @@
 <%# prepend the todo to the top of the list of todos %>
-<turbo-stream action="prepend" target="todos">
-  <template>
-    <%= render partial: "todo", locals: {todo: @todo}, formats: [:html] %>
-  </template>
-</turbo-stream>
+<%= turbo_stream.prepend "todos", partial: "todos/todo", locals: { todo: @todo } %>
+
 
 <%# clear out the form by replacing it with a blank one %>
-<turbo-stream action="update" target="create-todo">
-  <template>
-    <%= render partial: "form", locals: {todo: Todo.new}, formats: [:html] %>
-  </template>
-</turbo-stream>
+<%# update action means update the content inside the target%>
+<%# this is different from replace which wipes out the target with the template passed in %>
+<%= turbo_stream.update "create-todo", partial: "todos/form", locals: { todo: Todo.new } %>

@@ -7,13 +7,13 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
-    <turbo-frame id="flash">
+    <%= turbo_frame_tag "flash" do %>
       <%= render 'shared/flash_messages' %>
-    </turbo-frame>
+    <% end %>
 
     <%= yield %>
   </body>
