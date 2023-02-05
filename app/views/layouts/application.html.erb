@@ -11,9 +11,9 @@
   </head>
 
   <body>
-    <turbo-frame id="flash">
+    <%= turbo_frame_tag "flash" do %>
       <%= render 'shared/flash_messages' %>
-    </turbo-frame>
+    <% end %>
 
     <%= yield %>
   </body>
