@@ -3,16 +3,17 @@ class EventForm
 
   STEPS = {
     name: %i[name],
-    description: %i[description],
-    time: %i[starts_at ends_at]
+    description: %i[description]
   }.freeze
   
   attr_accessor :current_step, :name, :description, :starts_at, :ends_at
 
   with_options if: -> { required_for_step?(:name) } do
+    validates :name, presence: true
   end
 
   with_options if: -> { required_for_step?(:description) } do
+    validates :description, presence: true
   end
 
   with_options if: -> { required_for_step?(:time) } do
@@ -24,7 +25,7 @@ class EventForm
 
   def save
     if valid?
-      Event.create!(name: name, description: description, starts_at: starts_at, ends_at: ends_at)
+      true
     else
       false
     end
@@ -40,6 +41,6 @@ class EventForm
     # the current step of the form object then the "required for step"
     # is true
     ordered_step_keys = self.class.steps.keys
-    ordered_step_keys.index(step) <= ordered_steps.index(current_step)
+    ordered_step_keys.index(step) <= ordered_step_keys.index(current_step)
   end
 end

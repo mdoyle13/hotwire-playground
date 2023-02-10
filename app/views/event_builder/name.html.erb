@@ -1,0 +1,5 @@
+<%= form_with model: @event, scope: :event, url: wizard_path, method: :patch, data: {turbo: false} do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit "Next" %>
+<% end %>

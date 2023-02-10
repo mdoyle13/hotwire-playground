@@ -21,6 +21,9 @@ gem "hiredis"
 
 gem 'jsbundling-rails'
 
+# form wizards
+gem "wicked", "~> 2.0"
+
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -58,3 +61,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "cable_ready", "~> 5.0.0-pre8"
+
