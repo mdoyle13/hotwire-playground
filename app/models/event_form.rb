@@ -3,7 +3,8 @@ class EventForm
 
   STEPS = {
     name: %i[name],
-    description: %i[description]
+    description: %i[description],
+    time: %i[starts_at ends_at]
   }.freeze
   
   attr_accessor :current_step, :name, :description, :starts_at, :ends_at
@@ -17,6 +18,7 @@ class EventForm
   end
 
   with_options if: -> { required_for_step?(:time) } do
+    validates :starts_at, :ends_at, presence: true
   end
 
   def self.steps

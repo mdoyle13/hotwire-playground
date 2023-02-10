@@ -22,9 +22,9 @@ class EventBuilderController < ApplicationController
   end
 
   def finish_wizard_path
-    @event = Event.create(session[:event_attrs].except("current_step"))
+    @event = Event.create!(session[:event_attrs].except("current_step"))
     session[:event_attrs] = nil
-    throw done
+    event_path(@event)
   end
 
   private
