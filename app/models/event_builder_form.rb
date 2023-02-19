@@ -1,4 +1,4 @@
-class EventForm
+class EventBuilderForm
   include ActiveModel::Model
 
   STEPS = {
@@ -25,6 +25,8 @@ class EventForm
     STEPS
   end
 
+  # render_wizard calls save on this object
+  # return true or false tells Wicked what to do with the response
   def save
     if valid?
       true
@@ -33,13 +35,17 @@ class EventForm
     end
   end
 
+  def attributes
+  end
+
   private
   
+  # step param is a symbol
   def required_for_step?(step)
-    # All fields required 
+    # All fields required if current_step attr is missing
     return true unless current_step.present?
 
-    # if the index of passed in :step is lower than or equal to
+    # if the index of passed in the passed instep is lower than or equal to
     # the current step of the form object then the "required for step"
     # is true
     ordered_step_keys = self.class.steps.keys

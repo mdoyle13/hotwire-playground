@@ -1,30 +1,38 @@
 class EventBuilderController < ApplicationController
   include Wicked::Wizard
-  steps *EventForm.steps.keys
+  
+  steps *EventBuilderForm.steps.keys
 
   def show
-    # hydrate event from the session
+    # hydrate event data from the session, if any exists
     session[:event_attrs] ||= {}
     event_attrs = session[:event_attrs]
-    @event = EventForm.new(event_attrs)
+    @event = EventBuilderForm.new(event_attrs)
     render_wizard
   end
 
   def update
     event_attrs = session[:event_attrs].merge(event_params)
-    @event = EventForm.new(event_attrs)
+    @event = EventBuilderForm.new(event_attrs)
     if @event.valid?
       session[:event_attrs] = event_attrs
       redirect_to_next next_step
     else
+      # note: wicked is calling "save" on @event when render_wizard is run
       render_wizard @event
     end
   end
 
+  # Wicked calls this method after the last step of the form is successful
+  # Return a path/url after performing a few cleanup steps
   def finish_wizard_path
-    @event = Event.create!(session[:event_attrs].except("current_step"))
+    Event.create!(session[:event_attrs].except("current_step"))
+
+    # reset event_attrs in session
     session[:event_attrs] = nil
-    event_path(@event)
+
+    # return event_path for redirect
+    events_path
   end
 
   private
