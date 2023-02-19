@@ -35,9 +35,6 @@ class EventBuilderForm
     end
   end
 
-  def attributes
-  end
-
   private
   
   # step param is a symbol

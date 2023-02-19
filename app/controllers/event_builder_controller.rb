@@ -13,19 +13,26 @@ class EventBuilderController < ApplicationController
 
   def update
     event_attrs = session[:event_attrs].merge(event_params)
+
     @event = EventBuilderForm.new(event_attrs)
-    if @event.valid?
-      session[:event_attrs] = event_attrs
-      redirect_to_next next_step
-    else
-      # note: wicked is calling "save" on @event when render_wizard is run
-      render_wizard @event
-    end
+    session[:event_attrs] = event_attrs
+
+    # render_wizard calls save on the @event object
+    # if save returns true, the next step is rendered,
+    # otherwise the current step is rendered
+    render_wizard @event
   end
 
-  # Wicked calls this method after the last step of the form is successful
-  # Return a path/url after performing a few cleanup steps
+  private
+
+  def event_params
+    params.require(:event).permit(:name, :description, :starts_at, :ends_at).merge(current_step: step)
+  end
+
+  # this method is called after the last step is successful
+  # Returns a path/url after performing a few cleanup steps
   def finish_wizard_path
+    # save the event to the database using valid attributes from session
     Event.create!(session[:event_attrs].except("current_step"))
 
     # reset event_attrs in session
@@ -33,11 +40,5 @@ class EventBuilderController < ApplicationController
 
     # return event_path for redirect
     events_path
-  end
-
-  private
-
-  def event_params
-    params.require(:event).permit(:name, :description, :starts_at, :ends_at).merge(current_step: step)
   end
 end
