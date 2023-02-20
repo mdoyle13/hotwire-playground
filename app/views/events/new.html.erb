@@ -1,3 +1,9 @@
+<%= link_to "back to events listing", events_path  %>
 <h1>Creating a new event</h1>
+<p>Animated turbo frames!</p>
 <hr>
-<%= turbo_frame_tag "event_wizard", src: event_builder_path(id: EventBuilderForm.steps.keys.first) %>
+<div style="overflow:hidden;">
+<%= turbo_frame_tag "event_wizard", src: event_builder_path(id: EventBuilderForm.steps.keys.first), data: {
+  controller: "event-builder"  
+} %>
+</div>

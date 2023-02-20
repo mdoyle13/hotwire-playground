@@ -1,11 +1,13 @@
 <%= turbo_frame_tag "event_wizard" do %>
-  <%= form_with model: @event, scope: :event, url: wizard_path, method: :patch do |f| %>
-    <%= f.label :starts_at %>
-    <%= f.datetime_field :starts_at, value: @event.starts_at %>
-    
-    <%= f.label :ends_at %>
-    <%= f.datetime_field :ends_at, value: @event.ends_at %>
+  <div data-event-builder-target="form" class="animate__animated animate__fadeInUp">
+    <%= form_with model: @event, scope: :event, url: wizard_path, method: :patch do |f| %>
+      <%= f.label :starts_at %>
+      <%= f.datetime_field :starts_at, value: @event.starts_at %>
+      
+      <%= f.label :ends_at %>
+      <%= f.datetime_field :ends_at, value: @event.ends_at %>
 
-    <%= f.submit "Finish" %>
-  <% end %>
+      <%= f.submit "Finish" %>
+    <% end %>
+  </div>
 <% end %>
