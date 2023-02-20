@@ -1,0 +1,9 @@
+<%= turbo_frame_tag "event_wizard" do %>
+  <div data-event-builder-target="form" class="animate__animated animate__fadeInUp">
+    <%= form_with model: @event, scope: :event, url: wizard_path, method: :patch do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <%= f.submit "Next" %>
+    <% end %>
+  </div>
+<% end %>

@@ -195,6 +195,8 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     sqlite3 (1.4.2)
+    stimulus-rails (1.2.1)
+      railties (>= 6.0.0)
     thor (1.2.1)
     thread-local (1.1.0)
     tilt (2.0.10)
@@ -217,6 +219,8 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    wicked (2.0.0)
+      railties (>= 3.0.7)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.6.6)
@@ -242,10 +246,12 @@ DEPENDENCIES
   selenium-webdriver
   spring
   sqlite3 (~> 1.4)
+  stimulus-rails
   turbo-rails
   tzinfo-data
   web-console (>= 4.1.0)
   webdrivers
+  wicked (~> 2.0)
 
 RUBY VERSION
    ruby 3.1.3p185

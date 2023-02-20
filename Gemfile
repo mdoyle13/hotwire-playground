@@ -13,6 +13,10 @@ gem 'puma', '~> 5.0'
 gem 'sass-rails', '>= 6'
 # Hotwire!
 gem 'turbo-rails'
+
+# Stimulus rails installer & generators
+gem 'stimulus-rails'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
@@ -20,6 +24,9 @@ gem 'redis', '~> 4.0', :require => ["redis", "redis/connection/hiredis"]
 gem "hiredis"
 
 gem 'jsbundling-rails'
+
+# form wizards
+gem "wicked", "~> 2.0"
 
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -58,3 +65,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "cable_ready", "~> 5.0.0-pre8"
+
