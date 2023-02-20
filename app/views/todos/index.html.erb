@@ -1,5 +1,9 @@
-<h1>Todos</h1>
 <%= turbo_stream_from :todos %>
+
+<%= link_to "Back to examples", root_path %>
+
+<h1>Todos</h1>
+<p>Open this page in another tab to see live updates!</p>
 
 <%= link_to "all", todos_path, data: {turbo_frame: "todos", turbo_action: "advance" } %> | 
 <%= link_to "incomplete", incomplete_todos_path, data: {turbo_frame: "todos", turbo_action: "advance"} %> | 

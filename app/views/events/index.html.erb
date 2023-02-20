@@ -1,6 +1,9 @@
 <%= link_to "Back to examples", root_path %>
 <br><br>
 <%= link_to "Create an event", new_event_path %>
+<h1>Event listing</h1>
 <hr>
-Event listing
+<% @events.each do |event| %>
+  <li><%= event.name %></li>
+<% end %>
 
