@@ -33,7 +33,8 @@ class EventBuilderController < ApplicationController
   # Returns a path/url after performing a few cleanup steps
   def finish_wizard_path
     # save the event to the database using valid attributes from session
-    Event.create!(session[:event_attrs].except("current_step"))
+    event_attrs = session[:event_attrs].except("current_step")
+    Event.create!(event_attrs)
 
     # reset event_attrs in session
     session[:event_attrs] = nil
