@@ -71,9 +71,6 @@ GEM
     bindex (0.8.1)
     builder (3.2.4)
     byebug (11.1.3)
-    cable_ready (5.0.0.pre8)
-      rails (>= 5.2)
-      thread-local (>= 1.1.0)
     capybara (3.36.0)
       addressable
       matrix
@@ -198,7 +195,6 @@ GEM
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
     thor (1.2.1)
-    thread-local (1.1.0)
     tilt (2.0.10)
     timeout (0.3.1)
     turbo-rails (1.4.0)
@@ -231,7 +227,6 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
-  cable_ready (~> 5.0.0.pre.pre8)
   capybara (>= 3.26)
   hiredis
   jbuilder (~> 2.7)
